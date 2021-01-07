@@ -1,5 +1,5 @@
 # ChatMaster
 
- ![travis-ci](https://travis-ci.org/hyperliskdev/ChatMaster.svg?branch=master)
+ ![travis-ci](https://api.travis-ci.com/hyperliskdev/ChatMaster.svg?branch=main)
 
 
