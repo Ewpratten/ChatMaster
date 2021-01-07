@@ -1,7 +1,6 @@
 package dev.hyperlisk.chatmaster.database;
 
 import dev.hyperlisk.chatmaster.util.ConnectionString;
-import javafx.scene.chart.PieChart;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
