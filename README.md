@@ -1,2 +1,5 @@
 # ChatMaster
-A master chat plugin for servers that need some basic functionallity and some more advanced things.
+
+ ![travis-ci](https://travis-ci.org/hyperliskdev/[repository].svg?branch=[branch])
+
+

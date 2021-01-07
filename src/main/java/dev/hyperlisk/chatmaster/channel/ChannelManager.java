@@ -13,15 +13,18 @@ public class ChannelManager {
     }
 
     public Channel getChannel(UUID uuid) {
-
-        /**
-         * TODO: Change to the on join event instead of doing it here
-         */
-        if(!this.playerChannels.containsKey(uuid)) {
-            setChannel(uuid, Channel.GLOBAL);
-        }
         return this.playerChannels.get(uuid);
     }
 
+    public Channel returnChannel(String channelName) {
+        Channel channel = Channel.GLOBAL;
+        for (Channel c : Channel.values()) {
+            if(c.getChannelName() == channelName) {
+                channel = c;
+            }
+        }
+        return channel;
+
+    }
 
 }

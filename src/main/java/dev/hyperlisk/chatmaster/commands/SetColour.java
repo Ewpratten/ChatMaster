@@ -20,6 +20,7 @@ public class SetColour implements CommandExecutor {
         if(instance.getConfig().get("chatmaster.supporters").equals(player.getUniqueId())) {
 
 
+
         } else {
             player.sendMessage("[ChatMaster] Contact an admin to receive supporter status.");
         }
