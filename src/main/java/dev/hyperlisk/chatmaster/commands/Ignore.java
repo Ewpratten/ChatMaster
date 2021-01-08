@@ -1,4 +1,11 @@
 package dev.hyperlisk.chatmaster.commands;
 
-public class Ignore {
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
+public class Ignore implements CommandExecutor {
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+        return false;
+    }
 }

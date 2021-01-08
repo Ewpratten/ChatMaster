@@ -16,10 +16,19 @@ public class Message implements CommandExecutor {
 
         Player sender = (Player) commandSender;
         String recieverName = strings[0];
+        String message = "";
 
-        if(Bukkit.getOnlinePlayers().contains(recieverName)) {
-            
+        if(Bukkit.getPlayerExact(recieverName) == null) {
+            sender.sendMessage("Player: " + recieverName + " is not online.");
+        } else {
+            Player reciever = Bukkit.getPlayer(recieverName);
+            for(int i = 1; i != strings.length; i++) {
+                message += strings[i]+" ";
+            }
+            reciever.sendMessage(message);
         }
+
+
 
         return true;
     }
