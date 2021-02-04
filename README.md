@@ -1,5 +1,5 @@
 # ChatMaster
-![Build plugin](https://github.com/Ewpratten/ChatMaster/workflows/Build%20plugin/badge.svg)
+![Build plugin](https://github.com/hyperliskdev/ChatMaster/workflows/Build%20plugin/badge.svg)
 
 **TODO: Write a description here**
 
