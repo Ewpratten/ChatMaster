@@ -1,0 +1,84 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'kr.entree.spigradle' version '2.2.3'
+    id 'io.freefair.lombok' version '5.3.0'
+    id 'maven-publish'
+    id 'idea'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+
+ext {
+    mcVersion = project.property("minecraft.version")
+}
+
+group project.property("plugin.group")
+archivesBaseName = project.property("plugin.name")
+
+spigot {
+    name = project.property("plugin.name")
+    authors = [project.property("plugin.author")]
+    apiVersion = project.property("api.version")
+    load = STARTUP
+    //    depends = ['']
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    papermc()
+    spigot()
+    jitpack()
+    maven {
+        url = uri('https://hub.spigotmc.org/nexus/content/groups/public/')
+    }
+
+    maven {
+        url = uri('http://repo.maven.apache.org/maven2')
+    }
+}
+
+dependencies {
+    // compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+
+    compileOnly spigot(project.property("minecraft.version"))
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.+'
+    testImplementation "org.mockito:mockito-core:3.+"
+    testImplementation mockBukkit()
+    testImplementation 'org.assertj:assertj-core:3.+'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+shadowJar {
+    classifier = ''
+}
+
+tasks.build.dependsOn(shadowJar)
+tasks.prepareSpigotPlugins.dependsOn(shadowJar)
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    ignoreFailures = false
+}
+
+processResources {
+    project.properties.put("version", this.version)
+    expand project.properties
+}
+
+defaultTasks 'build'

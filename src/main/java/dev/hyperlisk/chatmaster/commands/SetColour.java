@@ -1,6 +1,7 @@
 package dev.hyperlisk.chatmaster.commands;
 
 import dev.hyperlisk.chatmaster.ChatMaster;
+import dev.hyperlisk.chatmaster.ReferenceStrings;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,7 +23,7 @@ public class SetColour implements CommandExecutor {
 
 
         } else {
-            player.sendMessage("[ChatMaster] Contact an admin to receive supporter status.");
+            player.sendMessage(ReferenceStrings.logHeader + "Contact an admin to receive supporter status.");
         }
 
         return true;
